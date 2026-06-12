@@ -174,12 +174,19 @@ footer{text-align:center; color:var(--cream-faint); font-size:11px; margin:26px 
 <script>
 /* =========================================================================
    ICONE PERSONALIZZATE (disegni SVG)  —  normalmente non serve toccarle.
-   Per assegnarne una a un prodotto, scrivi  "icon": IC_NOME  nella sua riga.
+   Per assegnarne una a un prodotto scrivi  "icon": IC_NOME  nella sua riga;
+   per usare un'emoji standard scrivi invece  "icon": "🍵" .
    ========================================================================= */
-const IC_MILK     = `<svg viewBox="0 0 32 32" width="23" height="23" aria-hidden="true"><path d="M9 13h14v12.4a2 2 0 0 1-2 2H11a2 2 0 0 1-2-2z" fill="#F3EEE2" stroke="#b7a482" stroke-width="1"/><path d="M9 13l7-5 7 5z" fill="#FBF7EE" stroke="#b7a482" stroke-width="1" stroke-linejoin="round"/><path d="M16 8v5" stroke="#b7a482" stroke-width=".8" opacity=".55"/><rect x="9.7" y="16.6" width="12.6" height="6.2" fill="#8FC0E6"/><path d="M16 17.7c1.5 1.7 2.2 2.7 2.2 3.5a2.2 2.2 0 0 1-4.4 0c0-.8.7-1.8 2.2-3.5z" fill="#fff"/></svg>`;
-const IC_CAKE     = `<svg viewBox="0 0 32 32" width="24" height="24" aria-hidden="true"><path d="M25 11L25 14L19.55 14Z" fill="#E79AB2"/><path d="M19.55 14L25 14L25 17L14.09 17Z" fill="#F1D199"/><path d="M14.09 17L25 17L25 19.5L9.55 19.5Z" fill="#FBF1E2"/><path d="M9.55 19.5L25 19.5L25 24L5 22Z" fill="#F1D199"/><path d="M5 22L25 11L25 24Z" fill="none" stroke="#c79a52" stroke-width="1" stroke-linejoin="round"/><path d="M21 9.2L22.4 7.2" stroke="#5e7d33" stroke-width="1" stroke-linecap="round"/><circle cx="21" cy="11.2" r="2" fill="#C8455B"/><circle cx="20.4" cy="10.6" r=".6" fill="#e98aa0"/></svg>`;
-const IC_ARANCINA = `<svg viewBox="0 0 32 32" width="24" height="24" aria-hidden="true"><circle cx="16" cy="17" r="10" fill="#E0A23C" stroke="#a8761f" stroke-width="1"/><ellipse cx="12.5" cy="13" rx="4" ry="2.8" fill="#F0C779" opacity=".55"/><circle cx="11" cy="18" r="1" fill="#c2842a"/><circle cx="15" cy="21" r="1" fill="#c2842a"/><circle cx="20" cy="15" r="1" fill="#c2842a"/><circle cx="19" cy="20" r=".9" fill="#c2842a"/><circle cx="16" cy="14" r=".8" fill="#efc06a"/><circle cx="13" cy="16" r=".8" fill="#efc06a"/><circle cx="22" cy="19" r=".8" fill="#efc06a"/><circle cx="17.5" cy="18" r=".8" fill="#c2842a"/></svg>`;
-const IC_CANNOLO  = `<svg viewBox="0 0 32 32" width="23" height="23" aria-hidden="true"><g transform="rotate(-35 16 16)"><rect x="5" y="12" width="22" height="9" rx="4.5" fill="#C9853A"/><rect x="5" y="12" width="22" height="9" rx="4.5" fill="none" stroke="#8f5620" stroke-width="1.2"/><line x1="10" y1="12.6" x2="10" y2="20.4" stroke="#8f5620" stroke-width="0.8" opacity=".55"/><line x1="16" y1="12.6" x2="16" y2="20.4" stroke="#8f5620" stroke-width="0.8" opacity=".55"/><line x1="22" y1="12.6" x2="22" y2="20.4" stroke="#8f5620" stroke-width="0.8" opacity=".55"/><ellipse cx="6.4" cy="16.5" rx="2.4" ry="4.4" fill="#FBF1DE"/><ellipse cx="25.6" cy="16.5" rx="2.4" ry="4.4" fill="#FBF1DE"/><circle cx="6.1" cy="15" r=".8" fill="#7a4f2b"/><circle cx="6.9" cy="18.2" r=".8" fill="#3f7a3a"/><circle cx="25.8" cy="15.4" r=".8" fill="#3f7a3a"/><circle cx="25.2" cy="18.2" r=".8" fill="#7a4f2b"/></g></svg>`;
+const IC_MILK           = `<svg viewBox="0 0 32 32" width="23" height="23" aria-hidden="true"><path d="M9 13h14v12.4a2 2 0 0 1-2 2H11a2 2 0 0 1-2-2z" fill="#F3EEE2" stroke="#b7a482" stroke-width="1"/><path d="M9 13l7-5 7 5z" fill="#FBF7EE" stroke="#b7a482" stroke-width="1" stroke-linejoin="round"/><path d="M16 8v5" stroke="#b7a482" stroke-width=".8" opacity=".55"/><rect x="9.7" y="16.6" width="12.6" height="6.2" fill="#8FC0E6"/><path d="M16 17.7c1.5 1.7 2.2 2.7 2.2 3.5a2.2 2.2 0 0 1-4.4 0c0-.8.7-1.8 2.2-3.5z" fill="#fff"/></svg>`;
+const IC_LATTEMACCHIATO = `<svg viewBox="0 0 32 32" width="22" height="24" aria-hidden="true"><defs><clipPath id="lmg"><path d="M11 8h10l-1.2 18.2a2 2 0 0 1-2 1.8h-3.6a2 2 0 0 1-2-1.8z"/></clipPath></defs><g clip-path="url(#lmg)"><rect x="9" y="8" width="14" height="22" fill="#F4EFE6"/><rect x="9" y="11.4" width="14" height="4.4" fill="#6E4A2E"/><rect x="9" y="8" width="14" height="3.2" fill="#FBF8F2"/></g><path d="M11 8h10l-1.2 18.2a2 2 0 0 1-2 1.8h-3.6a2 2 0 0 1-2-1.8z" fill="none" stroke="#cbb48f" stroke-width="1.1" stroke-linejoin="round"/><ellipse cx="16" cy="8" rx="5" ry="1.3" fill="#FBF8F2" stroke="#cbb48f" stroke-width="1.1"/></svg>`;
+const IC_CHOC           = `<svg viewBox="0 0 32 32" width="24" height="24" aria-hidden="true"><path d="M13 8c1-1.5 1-3 0-4.5M17 8c1-1.5 1-3 0-4.5" fill="none" stroke="#c9b9a3" stroke-width="1.3" stroke-linecap="round" opacity=".75"/><path d="M23 15a4.2 4.2 0 0 1 0 7.5" fill="none" stroke="#b89e78" stroke-width="1.8"/><path d="M8 13h15v6a6 6 0 0 1-6 6h-3a6 6 0 0 1-6-6z" fill="#F1E9DA" stroke="#b89e78" stroke-width="1.1" stroke-linejoin="round"/><ellipse cx="15.5" cy="13" rx="7.5" ry="2" fill="#5A3520"/><rect x="12.4" y="10.7" width="2.4" height="2.4" rx=".5" fill="#FBF6EC"/><rect x="15.4" y="11.1" width="2.2" height="2.2" rx=".5" fill="#FBF6EC"/></svg>`;
+const IC_CAKE           = `<svg viewBox="0 0 32 32" width="24" height="24" aria-hidden="true"><path d="M25 11L25 14L19.55 14Z" fill="#E79AB2"/><path d="M19.55 14L25 14L25 17L14.09 17Z" fill="#F1D199"/><path d="M14.09 17L25 17L25 19.5L9.55 19.5Z" fill="#FBF1E2"/><path d="M9.55 19.5L25 19.5L25 24L5 22Z" fill="#F1D199"/><path d="M5 22L25 11L25 24Z" fill="none" stroke="#c79a52" stroke-width="1" stroke-linejoin="round"/><path d="M21 9.2L22.4 7.2" stroke="#5e7d33" stroke-width="1" stroke-linecap="round"/><circle cx="21" cy="11.2" r="2" fill="#C8455B"/><circle cx="20.4" cy="10.6" r=".6" fill="#e98aa0"/></svg>`;
+const IC_SFOGLIA        = `<svg viewBox="0 0 32 32" width="24" height="24" aria-hidden="true"><path d="M9 22C8 12 16 7 23 11C27 13 27 18 26 22Z" fill="#E3B26A" stroke="#b6863c" stroke-width="1" stroke-linejoin="round"/><path d="M10.5 21Q14 12 22 11.5" fill="none" stroke="#b6863c" stroke-width=".8" opacity=".6"/><path d="M10.5 21Q15 13.5 24 14" fill="none" stroke="#b6863c" stroke-width=".8" opacity=".6"/><path d="M10.5 21Q15.5 16 25.6 17.5" fill="none" stroke="#b6863c" stroke-width=".8" opacity=".6"/><path d="M10.5 21Q14 18.5 26 20.5" fill="none" stroke="#b6863c" stroke-width=".8" opacity=".6"/></svg>`;
+const IC_PETITFOUR      = `<svg viewBox="0 0 32 32" width="24" height="24" aria-hidden="true"><path d="M5 23h22" stroke="#d3b27f" stroke-width="1" stroke-linecap="round" opacity=".5"/><path d="M7 23Q7 15.5 11 15.5Q15 15.5 15 23Z" fill="#EFE0C0" stroke="#d3b27f" stroke-width="1"/><path d="M17 23Q17 16 21 16Q25 16 25 23Z" fill="#EFE0C0" stroke="#d3b27f" stroke-width="1"/><circle cx="11" cy="15.6" r="1.7" fill="#C8455B"/><ellipse cx="21" cy="16.2" rx="1.4" ry="2.2" fill="#E6CF98" stroke="#caa96a" stroke-width=".6"/></svg>`;
+const IC_BRAID          = `<svg viewBox="0 0 32 32" width="22" height="24" aria-hidden="true"><rect x="11" y="5.5" width="10" height="21" rx="5" fill="#E2B466" stroke="#b78a3f" stroke-width="1"/><path d="M11 9.5L16 11.5L21 9.5M11 14L16 16L21 14M11 18.5L16 20.5L21 18.5M11 23L16 25L21 23" fill="none" stroke="#b78a3f" stroke-width="1" opacity=".7"/><path d="M12 7.5Q16 6.5 20 7.8Q17 9 13.5 8.2Q15.5 9.8 19 9" fill="none" stroke="#4A2C18" stroke-width="1.4" stroke-linecap="round"/><circle cx="13.5" cy="12" r=".7" fill="#4A2C18"/><circle cx="18" cy="16.5" r=".7" fill="#4A2C18"/><circle cx="14" cy="21" r=".7" fill="#4A2C18"/></svg>`;
+const IC_BRIOCHE        = `<svg viewBox="0 0 32 32" width="24" height="24" aria-hidden="true"><circle cx="16" cy="19" r="8.5" fill="#E6B265" stroke="#b8893d" stroke-width="1"/><circle cx="16" cy="9.5" r="3.8" fill="#EABE73" stroke="#b8893d" stroke-width="1"/><ellipse cx="12.5" cy="15.5" rx="3" ry="1.7" fill="#ffffff" opacity=".35"/><path d="M9 19q7 4 14 0" fill="none" stroke="#c79a52" stroke-width=".8" opacity=".5"/></svg>`;
+const IC_ARANCINA       = `<svg viewBox="0 0 32 32" width="24" height="24" aria-hidden="true"><circle cx="16" cy="17" r="10" fill="#E0A23C" stroke="#a8761f" stroke-width="1"/><ellipse cx="12.5" cy="13" rx="4" ry="2.8" fill="#F0C779" opacity=".55"/><circle cx="11" cy="18" r="1" fill="#c2842a"/><circle cx="15" cy="21" r="1" fill="#c2842a"/><circle cx="20" cy="15" r="1" fill="#c2842a"/><circle cx="19" cy="20" r=".9" fill="#c2842a"/><circle cx="16" cy="14" r=".8" fill="#efc06a"/><circle cx="13" cy="16" r=".8" fill="#efc06a"/><circle cx="22" cy="19" r=".8" fill="#efc06a"/><circle cx="17.5" cy="18" r=".8" fill="#c2842a"/></svg>`;
+const IC_CANNOLO        = `<svg viewBox="0 0 32 32" width="23" height="23" aria-hidden="true"><g transform="rotate(-35 16 16)"><rect x="5" y="12" width="22" height="9" rx="4.5" fill="#C9853A"/><rect x="5" y="12" width="22" height="9" rx="4.5" fill="none" stroke="#8f5620" stroke-width="1.2"/><line x1="10" y1="12.6" x2="10" y2="20.4" stroke="#8f5620" stroke-width="0.8" opacity=".55"/><line x1="16" y1="12.6" x2="16" y2="20.4" stroke="#8f5620" stroke-width="0.8" opacity=".55"/><line x1="22" y1="12.6" x2="22" y2="20.4" stroke="#8f5620" stroke-width="0.8" opacity=".55"/><ellipse cx="6.4" cy="16.5" rx="2.4" ry="4.4" fill="#FBF1DE"/><ellipse cx="25.6" cy="16.5" rx="2.4" ry="4.4" fill="#FBF1DE"/><circle cx="6.1" cy="15" r=".8" fill="#7a4f2b"/><circle cx="6.9" cy="18.2" r=".8" fill="#3f7a3a"/><circle cx="25.8" cy="15.4" r=".8" fill="#3f7a3a"/><circle cx="25.2" cy="18.2" r=".8" fill="#7a4f2b"/></g></svg>`;
 
 /* =========================================================================
    M E N U   —   COME MODIFICARLO  (guida rapida)
@@ -200,9 +207,13 @@ const IC_CANNOLO  = `<svg viewBox="0 0 32 32" width="23" height="23" aria-hidden
      finale), incollalo dentro la stessa sezione, fra le quadre  "items": [ ... ],
      e cambia "name", "price" ed eventualmente "desc" e "all".
 
+   • ICONA DI UN PRODOTTO ("icon"): facoltativa.
+       - emoji:        "icon": "🍵"
+       - icona SVG:    "icon": IC_BRIOCHE   (senza virgolette; vedi lista sopra)
+       - se la ometti, usa l'icona della sua categoria.
+
    • DESCRIZIONE ("desc"): può essere un testo semplice  "desc": "Con liquore"
      oppure tradotta in più lingue  {"it":"...","en":"...", ...}.
-     Se ometti "desc" il prodotto non mostra descrizione.
 
    • ALLERGENI ("all"): elenco di codici fra quadre. Lista completa:
        gluten=Glutine  crust=Crostacei  egg=Uova  fish=Pesce  peanut=Arachidi
@@ -861,7 +872,8 @@ const DATA = {
             "de": "Milch mit Kaffee",
             "ru": "Молоко с кофе",
             "zh": "牛奶加咖啡"
-          }
+          },
+          "icon": IC_LATTEMACCHIATO
         },
         {
           "name": "Macchiatone",
@@ -884,7 +896,8 @@ const DATA = {
             "de": "Heiße Schokolade",
             "ru": "Горячий шоколад",
             "zh": "热巧克力"
-          }
+          },
+          "icon": IC_CHOC
         },
         {
           "name": "Thé Caldo",
@@ -898,7 +911,8 @@ const DATA = {
             "de": "Heißer Tee",
             "ru": "Горячий чай",
             "zh": "热茶"
-          }
+          },
+          "icon": "🍵"
         },
         {
           "name": "Thé Caldo con miele",
@@ -912,7 +926,8 @@ const DATA = {
             "de": "Heißer Tee mit Honig",
             "ru": "Горячий чай с мёдом",
             "zh": "蜂蜜热茶"
-          }
+          },
+          "icon": "🍵"
         }
       ]
     },
@@ -1021,7 +1036,8 @@ const DATA = {
             "de": "Blätterteig mit Pistazie",
             "ru": "Слойка с фисташкой",
             "zh": "开心果酥皮"
-          }
+          },
+          "icon": IC_SFOGLIA
         },
         {
           "name": "Ciambelle / Donuts grande",
@@ -1060,7 +1076,8 @@ const DATA = {
             "de": "Creme, Ricotta oder Pistazie",
             "ru": "Крем, рикотта или фисташка",
             "zh": "奶油、里科塔或开心果"
-          }
+          },
+          "icon": "🥮"
         },
         {
           "name": "Tartelette",
@@ -1079,7 +1096,8 @@ const DATA = {
             "de": "Pistazie oder Schokolade",
             "ru": "Фисташка или шоколад",
             "zh": "开心果或巧克力"
-          }
+          },
+          "icon": "🥧"
         },
         {
           "name": "Cannolo Siciliano",
@@ -1119,7 +1137,8 @@ const DATA = {
             "de": "Sizilianische Cassatina",
             "ru": "Сицилийская кассатина",
             "zh": "西西里小卡萨塔"
-          }
+          },
+          "icon": IC_CAKE
         },
         {
           "name": "Cassata Siciliana Porzione",
@@ -1158,7 +1177,8 @@ const DATA = {
             "de": "Apfelkuchen-Stück",
             "ru": "Кусок яблочного пирога",
             "zh": "苹果派一份"
-          }
+          },
+          "icon": IC_CAKE
         },
         {
           "name": "Dolcini di Mandorle",
@@ -1175,7 +1195,8 @@ const DATA = {
             "de": "Mandelgebäck",
             "ru": "Миндальное печенье",
             "zh": "杏仁小点"
-          }
+          },
+          "icon": IC_PETITFOUR
         },
         {
           "name": "Treccina con cioccolato",
@@ -1194,7 +1215,8 @@ const DATA = {
             "de": "Schokoladenzopf",
             "ru": "Шоколадная плетёнка",
             "zh": "巧克力辫子面包"
-          }
+          },
+          "icon": IC_BRAID
         },
         {
           "name": "Iris",
@@ -1232,7 +1254,8 @@ const DATA = {
             "de": "Nutella-Brioche",
             "ru": "Бриошь с нутеллой",
             "zh": "能多益布里欧修"
-          }
+          },
+          "icon": IC_BRIOCHE
         },
         {
           "name": "Muffin Nutella Ferrero",
@@ -1253,7 +1276,8 @@ const DATA = {
             "de": "Nutella-Muffin",
             "ru": "Маффин с нутеллой",
             "zh": "能多益麦芬"
-          }
+          },
+          "icon": "🧁"
         }
       ]
     },
@@ -1371,7 +1395,8 @@ const DATA = {
             "de": "Mit Aufschnitt",
             "ru": "С колбасными изделиями",
             "zh": "冷切肉"
-          }
+          },
+          "icon": "🥖"
         },
         {
           "name": "Panino con pollo",
@@ -1387,7 +1412,8 @@ const DATA = {
             "de": "Mit Hähnchen",
             "ru": "С курицей",
             "zh": "鸡肉"
-          }
+          },
+          "icon": "🥖"
         },
         {
           "name": "Panino con bresaola",
@@ -1403,7 +1429,8 @@ const DATA = {
             "de": "Mit Bresaola",
             "ru": "С брезаолой",
             "zh": "风干牛肉"
-          }
+          },
+          "icon": "🥖"
         },
         {
           "name": "Brioscione",
@@ -1421,7 +1448,8 @@ const DATA = {
             "de": "Schinken, Mozzarella, Salat",
             "ru": "Ветчина, моцарелла, салат",
             "zh": "火腿、马苏里拉、生菜"
-          }
+          },
+          "icon": "🥖"
         }
       ]
     },
@@ -1661,7 +1689,8 @@ const DATA = {
             "de": "Nutella-Waffel",
             "ru": "Вафля с нутеллой",
             "zh": "能多益华夫饼"
-          }
+          },
+          "icon": "🧇"
         },
         {
           "name": "Waffel Nutella e Gelato",
@@ -1681,7 +1710,8 @@ const DATA = {
             "de": "Mit Nutella und Eis",
             "ru": "С нутеллой и мороженым",
             "zh": "能多益加冰淇淋"
-          }
+          },
+          "icon": "🧇"
         },
         {
           "name": "Cannolo Gelato",
